@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import loginReducer from "./redux/reducer/login_reducer";
-import singupReducer from "./redux/reducer/singup_reducer"
+import singupReducer from "./redux/reducer/singup_reducer";
+import wordReducer from "./redux/reducer/word_reducer";
 import { Provider } from "react-redux"
 import { createStore, applyMiddleware, compose, combineReducers } from "redux"
 import thunk from "redux-thunk"
@@ -24,7 +25,8 @@ const loggerMiddlaware = store => {
 }
 const reducers = combineReducers({
   loginReducer,
-  singupReducer
+  singupReducer,
+  wordReducer
 });
 const middlewares = [loggerMiddlaware, thunk];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

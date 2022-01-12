@@ -9,6 +9,10 @@ import UploadButton from '../../components/button/UploadButton'
 import CustomButton from '../../components/button/CustomButton'
 import CustomAlert from '../../components/alert/CustomAlert';
 import { useForm } from 'react-hook-form';
+
+import { connect } from "react-redux"
+import * as actions from "../../redux/actions/word_actions"
+
 const defaultValue = {
     engWord: "",
     monWord: ""
@@ -16,8 +20,6 @@ const defaultValue = {
 const Index = (props) => {
     const { updateShow, setUpdateShow, selectedItem, updateItem } = props;
     const [item, setItem] = React.useState({ ...defaultValue });
-    const [loading, setLoading] = React.useState(false);
-    const [open, setOpen] = React.useState(false);
     const {
         register,
         handleSubmit,
@@ -49,24 +51,11 @@ const Index = (props) => {
         setValue("engWord", "");
     }
     const onSubmit = (data) => {
-        setLoading(true);
-        if (updateShow) {
-
-        } else {
-            props.addItem(data);
-        }
-        setOpen(true);
-        setTimeout(function () {
-            setLoading(false);
-        }, 400);
+        console.log("data", data);
+        props.createWord(data);
     };
 
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        setOpen(false);
-    };
+
     const handleChange = (e) => {
         const tempItem = { ...item };
         tempItem[e.target.name] = e.target.value;
@@ -135,7 +124,7 @@ const Index = (props) => {
                                 onClick={() => {
                                     updateItem(item);
                                 }}
-                                loading={loading}
+                                loading={props.updateLoading}
                                 icon={<EditIcon />}
                                 variant="contained"
                                 text="Засах"
@@ -157,18 +146,35 @@ const Index = (props) => {
                                 <CustomButton
                                     type="submit"
                                     color="success"
-                                    loading={loading}
+                                    loading={props.saveLoading}
                                     icon={<SaveIcon />}
                                     variant="contained"
                                     text="Хадгалах"
                                 />
                             </Box>}
                     </form>
-                    <CustomAlert position={{ vertical: "top", horizontal: "center" }} open={open} duration={400} onClose={handleClose} text={updateShow ? "Амжилттай заслаа" : "Амжилттай нэмлээ"}></CustomAlert>
+
+                    {props.saveFinished && <CustomAlert position={{ vertical: "top", horizontal: "center" }} open={true} duration={1000} onClose={() => { props.createWordHideAlert(); }} text={"Амжилттай нэмлээ"}></CustomAlert>
+                    }
+                    {props.saveError && <CustomAlert position={{ vertical: "top", horizontal: "center" }} open={true} duration={1000} onClose={() => { props.createWordHideAlert(); }}
+                        type="error" text={props.saveError}></CustomAlert>}
                 </Grid>
             </Card>
         </Container >
     );
 };
-
-export default Index;
+const mapStateToProps = state => {
+    return {
+        saveLoading: state.wordReducer.saveLoading,
+        saveFinished: state.wordReducer.saveFinished,
+        saveError: state.wordReducer.saveError,
+        updateLoading: state.wordReducer.updateLoading,
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        createWord: (newWord) => dispatch(actions.createWord(newWord)),
+        createWordHideAlert: () => dispatch(actions.createWordHideAlert())
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
