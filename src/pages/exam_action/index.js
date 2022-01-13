@@ -1,7 +1,7 @@
 import { Box, Container, Card } from '@mui/material';
 import React from 'react';
 import CustomButton from '../../components/button/CustomButton';
-import InputField from '../../components/input_field/InputField';
+import InputField from '../../components/inputField/InputField';
 import { useForm } from 'react-hook-form';
 import SaveIcon from '@mui/icons-material/Save';
 import Radio from "@mui/material/Radio";

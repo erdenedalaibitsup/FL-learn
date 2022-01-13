@@ -9,7 +9,7 @@ import wordReducer from "./redux/reducer/word_reducer";
 import { Provider } from "react-redux"
 import { createStore, applyMiddleware, compose, combineReducers } from "redux"
 import thunk from "redux-thunk"
-
+import 'antd/dist/antd.css';
 
 const loggerMiddlaware = store => {
   return (next) => {

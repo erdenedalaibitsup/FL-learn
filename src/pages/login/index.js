@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import InputField from "../../components/input_field/InputField";
+import InputField from "../../components/inputField/InputField";
 import { useForm } from "react-hook-form";
 import CustomButton from "../../components/button/CustomButton";
 import SaveIcon from "@mui/icons-material/Save";

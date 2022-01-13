@@ -4,7 +4,7 @@ import React from 'react';
 import SaveIcon from '@mui/icons-material/Save';
 import EditIcon from '@mui/icons-material/Edit';
 import CancelIcon from '@mui/icons-material/Cancel';
-import InputField from '../../components/input_field/InputField'
+import InputField from '../../components/inputField/InputField'
 import UploadButton from '../../components/button/UploadButton'
 import CustomButton from '../../components/button/CustomButton'
 import CustomAlert from '../../components/alert/CustomAlert';
@@ -41,8 +41,6 @@ const Index = (props) => {
         }
     }, [selectedItem]);
 
-    React.useEffect(() => {
-    }, [item])
 
     const clearItem = () => {
         setUpdateShow(false);

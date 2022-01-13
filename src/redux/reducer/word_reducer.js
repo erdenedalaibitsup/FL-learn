@@ -1,16 +1,17 @@
 const initialState = {
     loading: false,
+    datas: [],
+    error: null,
     saveLoading: false,
     saveFinished: false,
     saveError: null,
     updateLoading: false,
-    datas: [],
     word: null,
-    error: null
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        //Үг нэмэх
         case "CREATE_WORD_START": return {
             ...initialState,
             saveLoading: true,
@@ -30,8 +31,26 @@ const reducer = (state = initialState, action) => {
             saveError: null,
             saveFinished: null,
         }
-
-
+        //Жагсаалт авах
+        case "LOAD_WORD_START": return {
+            ...initialState,
+            loading: true,
+        }
+        case "LOAD_WORD_SUCCESS": return {
+            ...initialState,
+            datas: action.datas,
+            loading: false,
+        }
+        case "LOAD_WORD_ERROR": return {
+            ...initialState,
+            loading: false,
+            error: action.error
+        }
+        case "LOAD_WORD_HIDE_ALERT": return {
+            ...initialState,
+            saveError: null,
+            saveFinished: null,
+        }
     }
     return state
 }

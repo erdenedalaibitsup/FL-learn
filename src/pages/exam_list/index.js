@@ -1,5 +1,5 @@
 import React from 'react';
-import DataTable from 'react-data-table-component';
+// import DataTable from 'react-data-table-component';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowDownward from '@mui/icons-material/ArrowDownward';
@@ -9,7 +9,7 @@ import DoneAll from '@mui/icons-material/DoneAll';
 import { Fragment } from 'react';
 import { Box } from '@mui/material';
 import CustomButton from '../../components/button/CustomButton';
-import FilterComponent from '../../components/FilterComponent'
+import FilterComponent from '../../components/filterComponent'
 function Index(props) {
     const [filterText, setFilterText] = React.useState('');
 
@@ -105,7 +105,7 @@ function Index(props) {
                     text="Дуусгах"
                 />
             </Box>
-            <DataTable
+            {/* <DataTable
                 columns={columns}
                 data={filteredItems}
                 pagination
@@ -126,7 +126,7 @@ function Index(props) {
                 dense
                 subHeader
                 subHeaderComponent={subHeaderComponent}
-            />
+            /> */}
         </div>
     );
 }

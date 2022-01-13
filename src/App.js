@@ -12,7 +12,6 @@ import Dashboard from "./pages/dahsboard"
 import Login from "./pages/login"
 import SignUp from "./pages/singUp"
 import React from "react";
-
 import { connect } from "react-redux"
 const MainRoot = () => {
   let routes = useRoutes([
@@ -25,18 +24,18 @@ const MainRoot = () => {
   return routes;
 };
 function App(props) {
-  return (
-    <StyledEngineProvider injectFirst>
+  return <StyledEngineProvider injectFirst>
 
-      {props.isLogin && <MiniDrawer></MiniDrawer>}
-      <Router>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <MainRoot></MainRoot>
-        </Box>
-      </Router>
-    </StyledEngineProvider>
+    {props.isLogin && <MiniDrawer></MiniDrawer>}
+    <Router>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <MainRoot></MainRoot>
+      </Box>
+    </Router>
 
-  );
+  </StyledEngineProvider>
+
+    ;
 }
 const mapStateToProps = state => {
   return {

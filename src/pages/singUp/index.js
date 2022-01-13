@@ -5,13 +5,13 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import Typography from "@mui/material/Typography";
-import InputField from "../../components/input_field/InputField";
+import InputField from "../../components/inputField/InputField";
 import { useForm } from "react-hook-form";
 import CustomButton from "../../components/button/CustomButton";
 import SaveIcon from "@mui/icons-material/Save";
 import CustomAlert from "../../components/alert/CustomAlert";
 import { Link, useNavigate } from "react-router-dom"
-import Copyright from "../../components/Copyright"
+import Copyright from "../../components/copyright"
 
 const Login = (props) => {
     console.log("hey", props)
