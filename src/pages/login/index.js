@@ -33,7 +33,6 @@ function Copyright(props) {
 }
 
 const SignIn = (props) => {
-  console.log("hey", props)
   let history = useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleClose = (event, reason) => {

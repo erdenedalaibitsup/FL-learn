@@ -15,7 +15,7 @@ import React from "react";
 import { connect } from "react-redux"
 const MainRoot = () => {
   let routes = useRoutes([
-    { path: "/", element: <Login /> },
+    { path: "/", element: <Login /> },//<Route path="/" exact ><Login></Login></Route>
     { path: "/register", element: < SignUp /> },
     { path: "/dashboard", element: < Dashboard /> },
     { path: "/admin", element: <Home /> },

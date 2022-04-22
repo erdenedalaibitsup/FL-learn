@@ -51,7 +51,7 @@ function Index(props) {
             title: 'Монгол үг',
             dataIndex: "monWord",
             width: 150,
-            ...getColumnSearchProps("engWord", state, setState),
+            ...getColumnSearchProps("monWord", state, setState),
         }, {
             key: "action",
             text: "Action",
